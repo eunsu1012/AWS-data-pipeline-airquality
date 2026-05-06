@@ -104,7 +104,7 @@ Matplotlib (visualization)
 
 ## 📁 Project Structure
 
-\
+```
 AWS-data-pipeline-airquality/
 │
 ├── lambda/              # Lambda function code
@@ -112,7 +112,7 @@ AWS-data-pipeline-airquality/
 ├── notebooks/           # Colab visualization notebook
 ├── results/             # Charts & outputs
 └── README.md
-\
+```
 
 ---
 
