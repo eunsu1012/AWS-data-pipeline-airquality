@@ -87,7 +87,7 @@ Matplotlib (visualization)
 
 ## 📈 Visualizations
 
-![Seoul Air Quality by District](air_quality_results.png)
+![Seoul Air Quality by District](seoul_air_quality.png)
 
 ---
 
