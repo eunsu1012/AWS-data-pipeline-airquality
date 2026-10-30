@@ -30,15 +30,17 @@ ETL automation, serverless architecture, and cloud-based analytics.
 ```
 EventBridge (hourly)
       ↓
-AWS Lambda (Python)
+AWS Lambda : collector (Python) ─ API key from SSM Parameter Store
       ↓
 Amazon S3 (data lake)
-      ↓
-AWS Glue (schema catalog)
-      ↓
-Amazon Athena (SQL analytics)
-      ↓
-Matplotlib (visualization)
+      ├──────────────────────────────┐
+      ↓                              ↓
+AWS Glue (schema catalog)      AWS Lambda : summarizer (Python)
+      ↓                        ─ EventBridge Scheduler (hourly / daily)
+Amazon Athena (SQL analytics)        ↓
+      ↓                        Claude API (Haiku 5.5)
+Matplotlib (visualization)           ↓
+                               Amazon S3 (summaries/)
 ```
 
 ---
@@ -118,7 +120,8 @@ AWS-data-pipeline-airquality/
 
 ## 🚀 Results
 
-- Fully automated pipeline running 24/7 at zero cost (AWS Free Tier)
+- Fully automated pipeline running 24/7 (AWS resources within Free Tier; LLM summaries ≈ $0.2/month)
+- Hourly and daily Korean air quality summaries generated automatically by an LLM
 - Successfully processed and analyzed 700+ air quality records
 - Identified 강남구 as the district with highest PM2.5 levels in Seoul
 
